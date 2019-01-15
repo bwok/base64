@@ -2,8 +2,9 @@
  ============================================================================
  Name        : base64.h
  Author      : James Fuge
- Version     :
- Copyright   : Your copyright notice
+ Version     : 0.1
+ Copyright   : © 2019 James Fuge (james.fuge@gmail.com)
+                      Released under the GNU General Public License
  Description : Base64 en and decoder
  ============================================================================
  */
