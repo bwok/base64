@@ -126,8 +126,10 @@ int decode(const unsigned char *input, unsigned int in_len, unsigned char *outpu
 		/* Don't output out_char if value is 0, and it included a padding char. */
 		if(byte_counter != 0 && decode_val != -2){
 			output[out_index++] = out_char;
+			out_char = 0;
 		}else if(out_char > 0){
 			output[out_index++] = out_char;
+			out_char = 0;
 		}
 		byte_counter++;
 	}
