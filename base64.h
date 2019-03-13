@@ -19,10 +19,11 @@
 
 /*
  * Encodes a character byte array as base64.
+ * The output array should be big enough to hold the encoded data.
  * Returns the number of characters written
- * to the output array, or -1.
+ * to the output array.
  */
-int encode(const unsigned char *input, unsigned int in_len, unsigned char *output, unsigned int max_out_len, int add_padding){
+int encode(const unsigned char *input, unsigned int in_len, unsigned char *output, int add_padding){
 	const static char base64_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 	int out_index = 0;
 	int in_index = 0;
@@ -31,11 +32,6 @@ int encode(const unsigned char *input, unsigned int in_len, unsigned char *outpu
 
 	if(in_len == 0){
 		return 0;
-	}
-
-	/* If more bytes will be used than max_out_len then return immediately */
-	if((4 * ((in_len + 2) / 3)) > max_out_len){
-		return -1;
 	}
 
 	for(in_index=0; in_index < in_len; in_index++){
